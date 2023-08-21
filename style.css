@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url(bingo.png);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.tituloBingo{
+    text-align: center;
+    display: grid;
+    font-size: 1.6rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container {
+    width: 100vw;
+    display: flex;
+    justify-content: center; 
+}
+.sorteio{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+#n-sorteado, h3{
+    margin: 0px;
+}
+
+.n-1{
+    font-size: 3rem;
+    margin: 1rem;
+}
+
+#tabelaBingo {
+    border-collapse: collapse;
+    height: 25rem;
+    width: 25rem;
+    text-align: center;
+    font-size: 22pt;
+    cursor: pointer;
+}
+
+#tabelaBingo td {
+    padding: 0.3rem;
+ }
+
+ .divCartela {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20%;
+    font-size: 2.5rem;
+    border: 0.5px solid #030303;
+}
+
+.divCartela:hover {
+    background-color:rgb(202, 212, 210);
+}
+
+.marcados{
+    border-radius: 20px;
+    width: 80%;
+    color: rgb(240, 248, 244);
+    text-decoration: line-through;
+    pointer-events: none;
+    margin: 0.3rem;
+    box-sizing: border-box;
+    background: #74ee70;
+}
+
+.botao-sorteio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    border: solid 0.5px #030303;
+}
+
+.botao-sorteio, span{
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 6px;
+}
+
+footer{
+    margin-left: 0px;
+    max-width: 100vw;
+    height: auto;
+    display: flex;
+}
+
+footer, p{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: #030303;
+}
+
+.show-bingo {
+    display: inline;
+}
