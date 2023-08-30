@@ -64,7 +64,6 @@ body {
     border-radius: 20px;
     width: 80%;
     color: rgb(240, 248, 244);
-    text-decoration: line-through;
     pointer-events: none;
     margin: 0.3rem;
     box-sizing: border-box;

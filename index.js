@@ -98,53 +98,57 @@ const celulasTabela = document.querySelectorAll('.numerosCartela');
 celulasTabela.forEach((celula) => {
   celula.addEventListener('click', () => {
     const numeroClicado = parseInt(celula.textContent);
-    const celulasTabela = document.querySelectorAll('.numerosCartela');
-    let numerosGanhar = 0;
-    if (!numerosSorteados.includes(numeroClicado)) {
-    alert('O número clicado não foi sorteado.');
-    return;
-      celulasTabela.forEach((celula) => {
-        celula.addEventListener('click', () => {
-          if (!celula.classList.contains('marcados')) {
-            celula.classList.add('marcados');
-            numerosGanhar++;
-            if (Ganhou()) {
 
-              if (numerosGanhar === 5) {
-                if (combinacoesBingo.some((combinacao) => combinacao.includes(numerosGanhar))) {
-                alert('Bingo em uma das combinações!');
-                }
-              } 
-              
-              else if (numerosGanhar === 10) {
-                if (combinacoesBingo.some((combinacao) => combinacao.includes(numerosGanhar))) {
-                alert('Bingo em uma das combinações!');
-                }
-              } 
-              
-              else if (numerosGanhar === 15) {
-                if (combinacoesBingo.some((combinacao) => combinacao.includes(numerosGanhar))) {
-                alert('Bingo em uma das combinações!');
-                }
-              }
-              
-              else if(numerosGanhar === 20) {
-                if (combinacoesBingo.some((combinacao) => combinacao.includes(numerosGanhar))) {
-                alert('Bingo em uma das combinações!');
-                }
-              }
-              
-              else if(numerosGanhar === 24) {
-                alert('B I N G O O O, Você completou toda a Cartela');
-              }
-            };
-          };
-        });
-      });
+    if (!numerosSorteados.includes(numeroClicado)) {
+      alert('O número clicado não foi sorteado.');
+      return;
+    }
+
+    if (!celula.classList.contains('marcados')) {
+      celula.classList.add('marcados');
+      let numerosGanhar = 0
+      numerosGanhar++;
+
+      if (Ganhou()) {
+        if (numerosGanhar === 5) {
+          if (
+            combinacoesBingo.some((combinacao) =>
+              combinacao.includes(numerosGanhar)
+            )
+          ) {
+            alert('Bingo em uma das combinações!');
+          }
+        } else if (numerosGanhar === 10) {
+          if (
+            combinacoesBingo.some((combinacao) =>
+              combinacao.includes(numerosGanhar)
+            )
+          ) {
+            alert('Bingo em uma das combinações!');
+          }
+        } else if (numerosGanhar === 15) {
+          if (
+            combinacoesBingo.some((combinacao) =>
+              combinacao.includes(numerosGanhar)
+            )
+          ) {
+            alert('Bingo em uma das combinações!');
+          }
+        } else if (numerosGanhar === 20) {
+          if (
+            combinacoesBingo.some((combinacao) =>
+              combinacao.includes(numerosGanhar)
+            )
+          ) {
+            alert('Bingo em uma das combinações!');
+          }
+        } else if (numerosGanhar === 24) {
+          alert('B I N G O O O, Você completou toda a Cartela');
+        }
+      }
     }
   });
 });
-
     function Ganhou() {
       return combinacoesBingo.some((combination) => {
         return combination.every((index) => {
