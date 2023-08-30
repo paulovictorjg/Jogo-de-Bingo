@@ -9,13 +9,13 @@ const combinacoesBingo = [
   [15, 16, 18, 19],
   [20, 21, 22, 23, 24],
   [25, 26, 27, 28, 29],
-
   [5, 10, 15, 20, 25],
   [6, 11, 16, 21, 26],
   [7, 12, 22, 27],
   [8, 13, 19, 23, 28],
   [9, 14, 19, 24, 29],
 ];
+
 const numerosSorteados = [];
 const numerosClicados = [];
 
@@ -95,19 +95,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 const celulasTabela = document.querySelectorAll('.numerosCartela');
+
+let numerosGanhar = 0; // Declare fora do loop
+
 celulasTabela.forEach((celula) => {
   celula.addEventListener('click', () => {
-    const numeroClicado = parseInt(celula.textContent);
-
-    if (!numerosSorteados.includes(numeroClicado)) {
-      alert('O número clicado não foi sorteado.');
-      return;
-    }
-
     if (!celula.classList.contains('marcados')) {
       celula.classList.add('marcados');
-      let numerosGanhar = 0
-      numerosGanhar++;
+      numerosGanhar++; // Atualize o valor de numerosGanhar
+      console.log(numerosGanhar); // Exiba o valor para fins de depuração
 
       if (Ganhou()) {
         if (numerosGanhar === 5) {
@@ -149,10 +145,11 @@ celulasTabela.forEach((celula) => {
     }
   });
 });
-    function Ganhou() {
-      return combinacoesBingo.some((combination) => {
-        return combination.every((index) => {
-          return celulasTabela[index].classList.contains('marcados');
-      });
+
+function Ganhou() {
+  return combinacoesBingo.some((combination) => {
+    return combination.every((index) => {
+      return celulasTabela[index].classList.contains('marcados');
     });
+  });
 }
