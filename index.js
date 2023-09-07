@@ -82,7 +82,7 @@ function sortearNumero() {
 
   numerosSorteados.push(numeroSorteado);
 
-  const numerosSorteadosElement = document.querySelector('#n-sorteado');
+  const numerosSorteadosElement = document.querySelector('#nSorteado');
   numerosSorteadosElement.querySelector('.n-1').textContent = numeroSorteado;
 }
 
@@ -94,18 +94,17 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
 //funcao para ganhar
 const celulasTabela = document.querySelectorAll('.numerosCartela');
-let numerosGanhar = 0
+let numerosGanhar = 0;
 celulasTabela.forEach((celula) => {
   celula.addEventListener('click', () => {
     const numeroClicado = parseInt(celula.textContent);
 
-    if (!numerosSorteados.includes(numeroClicado)) {
-      alert('O número clicado não foi sorteado.');
-      return;
-    }
+    //if (!numerosSorteados.includes(numeroClicado)) {
+    //alert('O número clicado não foi sorteado.');
+    //return;
+    //}
 
     if (!celula.classList.contains('marcados')) {
       celula.classList.add('marcados');
@@ -113,30 +112,24 @@ celulasTabela.forEach((celula) => {
       console.log(numerosGanhar);
       if (Ganhou()) {
         if (numerosGanhar === 5) {
-            alert('Bingo em uma das combinações!');
-          }
-        else if (numerosGanhar === 10) {
-            alert('Bingo em uma das combinações!');
-          }
-        else if (numerosGanhar === 15) {
-            alert('Bingo em uma das combinações!');
-          }
-        else if (numerosGanhar === 20) {
-            alert('Bingo em uma das combinações!');
-          }
+          alert('Bingo em uma das combinações!');
+          location.reload();
+          return;
+        }
         else if (numerosGanhar === 24) {
           alert('B I N G O O O, Você completou toda a Cartela');
+          location.reload();
+          return;
         }
+      }
     }
-  };
-});
+  });
 
-
-    function Ganhou() {
-      return combinacoesBingo.some((combination) => {
-        return combination.every((index) => {
-          return celulasTabela[index].classList.contains('marcados');
+  function Ganhou() {
+    return combinacoesBingo.some((combination) => {
+      return combination.every((index) => {
+        return celulasTabela[index].classList.contains('marcados');
       });
     });
   }
-})
+});

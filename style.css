@@ -44,9 +44,9 @@ body {
 
 #tabelaBingo td {
     padding: 0.3rem;
- }
+}
 
- .divCartela {
+.divCartela {
     height: 100%;
     display: flex;
     justify-content: center;
