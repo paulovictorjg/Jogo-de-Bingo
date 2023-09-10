@@ -101,10 +101,10 @@ celulasTabela.forEach((celula) => {
   celula.addEventListener('click', () => {
     const numeroClicado = parseInt(celula.textContent);
 
-    //if (!numerosSorteados.includes(numeroClicado)) {
-    //alert('O número clicado não foi sorteado.');
-    //return;
-    //}
+    if (!numerosSorteados.includes(numeroClicado)) {
+    alert('O número clicado não foi sorteado.');
+    return;
+    }
 
     if (!celula.classList.contains('marcados')) {
       celula.classList.add('marcados');
