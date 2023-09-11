@@ -24,9 +24,7 @@ for (let i = 0; i < colunaNumeros.length; i++) {
     colunaNumeros[i].push(j + i * numerosPorColuna + 1);
   }
   shuffle(colunaNumeros[i]);
-  console.log(colunaNumeros);
 }
-
 colunaNumeros[2][2] = null; // Célula N3 vazia
 
 for (let linha = 0; linha < 6; linha++) {
@@ -78,7 +76,6 @@ function sortearNumero() {
   do {
     numeroSorteado = Math.floor(Math.random() * 75) + 1;
   } while (numerosSorteados.includes(numeroSorteado));
-  console.log(numerosSorteados);
 
   numerosSorteados.push(numeroSorteado);
 
@@ -95,12 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 //funcao para ganhar
+
 const celulasTabela = document.querySelectorAll('.numerosCartela');
 let numerosGanhar = 0;
 celulasTabela.forEach((celula) => {
   celula.addEventListener('click', () => {
-    const numeroClicado = parseInt(celula.textContent);
-
+    
     if (!numerosSorteados.includes(numeroClicado)) {
     alert('O número clicado não foi sorteado.');
     return;
@@ -109,15 +106,27 @@ celulasTabela.forEach((celula) => {
     if (!celula.classList.contains('marcados')) {
       celula.classList.add('marcados');
       numerosGanhar++;
-      console.log(numerosGanhar);
       if (Ganhou()) {
         if (numerosGanhar === 5) {
           alert('Bingo em uma das combinações!');
           location.reload();
           return;
-        }
-        else if (numerosGanhar === 24) {
-          alert('B I N G O O O, Você completou toda a Cartela');
+        } else if (
+          celulasTabela[5].classList.contains('marcados') &&
+          celulasTabela[11].classList.contains('marcados') &&
+          celulasTabela[23].classList.contains('marcados') &&
+          celulasTabela[29].classList.contains('marcados')
+        ) {
+          alert('Diagonal marcada!');
+          location.reload();
+          return;
+        } else if (
+          celulasTabela[9].classList.contains('marcados') &&
+          celulasTabela[13].classList.contains('marcados') &&
+          celulasTabela[21].classList.contains('marcados') &&
+          celulasTabela[25].classList.contains('marcados')
+        ) {
+          alert('Diagonal marcada!');
           location.reload();
           return;
         }
